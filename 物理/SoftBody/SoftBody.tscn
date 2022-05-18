@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="SphereMesh" id=4]
+
+[sub_resource type="SphereShape" id=5]
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 20, 20 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 9.29353, 0.253143, 8.39593 )
+
+[sub_resource type="CubeMesh" id=1]
+subdivide_width = 3
+subdivide_height = 3
+subdivide_depth = 3
+
+[node name="Node2D" type="Spatial"]
+
+[node name="ridgi" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.06801, 0 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="ridgi"]
+mesh = SubResource( 4 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="ridgi"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.11213, 0 )
+mesh = SubResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="SoftBody" type="SoftBody" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01817, 9.53483 )
