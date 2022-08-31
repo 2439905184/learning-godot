@@ -1,0 +1,175 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://资源文件/24font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://资源文件/Alibaba-PuHuiTi-Regular.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="1" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 518.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "下面是默认的SizeFlag，尽管父节点比子节点大，但是子节点无法自动缩放。"
+autowrap = true
+
+[node name="默认布局" type="HBoxContainer" parent="."]
+margin_left = 3.0
+margin_top = 54.0
+margin_right = 168.0
+margin_bottom = 74.0
+
+[node name="Label" type="Label" parent="默认布局"]
+margin_top = 3.0
+margin_right = 8.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="Button" type="Button" parent="默认布局"]
+margin_left = 12.0
+margin_right = 32.0
+margin_bottom = 20.0
+text = "2"
+
+[node name="2" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 79.0
+margin_right = 519.0
+margin_bottom = 104.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "下面给按钮的SizeFlag设置了横向Expand，所以它会跟着父节点缩放。注意要和横向的Fill一起用"
+autowrap = true
+
+[node name="横向Exapnd" type="HBoxContainer" parent="."]
+margin_left = 6.0
+margin_top = 134.0
+margin_right = 262.0
+margin_bottom = 154.0
+
+[node name="Label" type="Label" parent="横向Exapnd"]
+margin_top = 3.0
+margin_right = 8.0
+margin_bottom = 17.0
+text = "1"
+
+[node name="Button" type="Button" parent="横向Exapnd"]
+margin_left = 12.0
+margin_right = 256.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "2"
+
+[node name="3" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 162.0
+margin_right = 520.0
+margin_bottom = 215.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "下面给按钮2设置了横向的Shrink center,所以它会在父节点的横向上居中，不能和 fill 或 expand 尺寸标志一起用。"
+autowrap = true
+
+[node name="Shrink Center" type="PanelContainer" parent="."]
+margin_left = 3.0
+margin_top = 220.0
+margin_right = 272.0
+margin_bottom = 254.0
+
+[node name="Button" type="Button" parent="Shrink Center"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 27.0
+margin_bottom = 27.0
+size_flags_horizontal = 0
+text = "1"
+
+[node name="Button2" type="Button" parent="Shrink Center"]
+margin_left = 124.0
+margin_top = 7.0
+margin_right = 144.0
+margin_bottom = 27.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "2"
+
+[node name="4" type="Label" parent="."]
+margin_left = 4.0
+margin_top = 255.0
+margin_right = 521.0
+margin_bottom = 308.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "下面给按钮2设置了横向的Shrink end,所以它会在父节点的末尾对齐，不能和 fill 或 expand 尺寸标志一起用。"
+autowrap = true
+
+[node name="Shrink End" type="PanelContainer" parent="."]
+margin_left = 5.0
+margin_top = 311.0
+margin_right = 274.0
+margin_bottom = 345.0
+
+[node name="Button" type="Button" parent="Shrink End"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 27.0
+margin_bottom = 27.0
+size_flags_horizontal = 0
+text = "1"
+
+[node name="Button2" type="Button" parent="Shrink End"]
+margin_left = 242.0
+margin_top = 7.0
+margin_right = 262.0
+margin_bottom = 27.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "2"
+
+[node name="5" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 352.0
+margin_right = 493.0
+margin_bottom = 406.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "下面给按钮1和按钮2都设置了横向的Expand，并增加了按钮2的缩放比例分配 Stretch Ratio必须和Expand一起用"
+autowrap = true
+
+[node name="带有缩放比例分配的Expand" type="HBoxContainer" parent="."]
+margin_left = 9.0
+margin_top = 424.0
+margin_right = 305.0
+margin_bottom = 444.0
+
+[node name="Label" type="Button" parent="带有缩放比例分配的Expand"]
+margin_right = 97.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "1"
+
+[node name="Button" type="Button" parent="带有缩放比例分配的Expand"]
+margin_left = 101.0
+margin_right = 296.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 2.0
+text = "2"
+
+[node name="笔记" type="Label" parent="."]
+margin_left = 571.0
+margin_right = 1028.0
+margin_bottom = 34.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "笔记：SizeFlag即大小标签，告诉父节点，当父节点大大小比子节点大时，如何缩放子节点。父节点必须是继承自Container的节点（容器类型）
+"
+autowrap = true
