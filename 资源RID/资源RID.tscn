@@ -34,6 +34,7 @@ shape = SubResource( 1 )
 margin_right = 40.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 4 )
-text = "判断实例场景来自哪个文件，用于精细处理逻辑"
+text = "判断实例场景来自哪个文件，用于精细处理逻辑。
+你也可以在敌人场景添加脚本变量var isEnemy:bool 来进行区分"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
